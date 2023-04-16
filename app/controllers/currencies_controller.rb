@@ -1,6 +1,7 @@
 class CurrenciesController < ApplicationController
   def first_currency
-    @raw_data = open("https://api.exchangerate.host//symbols").read
+    # @raw_data = open("https://api.exchangerate.host//symbols").read
+    @raw_data = open("https://api.exchangerate.host/symbols").read
     @parsed_data = JSON.parse(@raw_data)
     @symbols_hash = @parsed_data.fetch("symbols")
 
@@ -10,7 +11,7 @@ class CurrenciesController < ApplicationController
 
   def second_currency
     @first_currency_symbol = params.fetch("first_currency_symbol")
-    @raw_data = open("https://api.exchangerate.host//symbols").read
+    @raw_data = open("https://api.exchangerate.host/symbols").read
     @parsed_data = JSON.parse(@raw_data)
     @symbols_hash = @parsed_data.fetch("symbols")
 

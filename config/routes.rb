@@ -4,4 +4,7 @@ Rails.application.routes.draw do
 
   # dynamic routes
   get("/forex/:first_currency_symbol", { :controller => "currencies", :action => "second_currency" })
+  # the result
+  get("/forex/:from_currency/:to_currency", { :controller => "currencies", :action => "exchg_rate" })
+
 end
